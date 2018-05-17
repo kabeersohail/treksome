@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "464186032747",
+    "firebase_url": "https://treksome-912b8.firebaseio.com",
+    "project_id": "treksome-912b8",
+    "storage_bucket": "treksome-912b8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:464186032747:android:e71fd2c4339a0b76",
+        "android_client_info": {
+          "package_name": "com.example.sohail.treksome"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "464186032747-s82ic6v8icign9jls15gcvoeg3g4d59q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.sohail.treksome",
+            "certificate_hash": "a33780904cb652088d9aad7899bda9249293ba25"
+          }
+        },
+        {
+          "client_id": "464186032747-3ngasff5v7atj8m56v8eotk2bqjqr16v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBiMOJ7RA11vYCzExKFFoAUn-xsr-cshGU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "464186032747-3ngasff5v7atj8m56v8eotk2bqjqr16v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

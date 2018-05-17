@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/trek"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="20dp"
+        android:textSize="20sp"
+        android:text="@string/welcome_to_treksome"/>
+
+    <br.com.bloder.magic.view.MagicButton
+        android:id="@+id/XmlGoogleSignIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        app:button_icon="@drawable/g2"
+        app:button_icon_height="25dp"
+        app:button_icon_width="25dp"
+        app:hide_text="Google"
+        app:hide_text_color="#000000"
+        app:magic_button_size="50dp" />
+
+</LinearLayout>
