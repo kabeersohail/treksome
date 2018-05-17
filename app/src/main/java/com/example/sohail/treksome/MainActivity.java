@@ -54,11 +54,11 @@ public class MainActivity extends AppCompatActivity {
                 firebaseUser = firebaseAuth.getCurrentUser();
                 if(firebaseUser == null)
                 {
-                    Toast.makeText(MainActivity.this,"Signed out",Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(MainActivity.this,"Signed out",Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
-                    Toast.makeText(MainActivity.this,"Signed in",Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(MainActivity.this,"Signed in",Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(MainActivity.this,Main2Activity.class));
                 }
             }

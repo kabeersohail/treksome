@@ -65,6 +65,7 @@ public class Main2Activity extends AppCompatActivity {
             magicGoogleButton.setMagicButtonClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                finish();
                 AuthUI.getInstance().signOut(Main2Activity.this);
                 startActivity(new Intent(Main2Activity.this,MainActivity.class));
             }
