@@ -12,7 +12,7 @@
         android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#FFFFFF"
+        android:textColor="#439ea4"
         android:layout_marginTop="20dp"
         android:textSize="20sp"
         android:text="@string/welcome_to_treksome"/>
@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="50dp"
-        app:button_icon="@drawable/g2"
+        app:button_icon="@drawable/googleg_standard_color_18"
         app:button_icon_height="25dp"
         app:button_icon_width="25dp"
         app:hide_text="Google"

@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.example.sohail.treksome.Main2Activity;
 import com.firebase.ui.auth.AuthUI;
+import com.github.clans.fab.FloatingActionButton;
 import com.google.android.gms.common.SignInButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     FirebaseUser firebaseUser;
     MagicButton magicGoogleButton;
+    FloatingActionButton floatingActionButton;
     FirebaseAuth.AuthStateListener stateListener;
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -59,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
                 else
                 {
 //                    Toast.makeText(MainActivity.this,"Signed in",Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(MainActivity.this,Main2Activity.class));
+                    startActivity(new Intent(MainActivity.this,Main3Activity.class));
                 }
             }
         };
