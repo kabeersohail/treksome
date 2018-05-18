@@ -2,6 +2,7 @@ package com.example.sohail.treksome;
 
 import android.app.ProgressDialog;
 import android.app.VoiceInteractor;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -19,6 +20,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
@@ -33,17 +36,32 @@ public class Main2Activity extends AppCompatActivity {
     MagicButton magicGoogleButton;
     Button JavaUploadButton,JavaChooseButton;
     FirebaseStorage storage;
+    FirebaseUser firebaseUser;
+    FirebaseAuth firebaseAuth;
     StorageReference storageReference;
     ImageView imageView;
+    Context context;
     private static final int Pick_Image_Request = 91;
     private Uri filePath;
+
+    public Main2Activity(Context context){
+        this.context = context;
+    }
+
+    public Main2Activity(){ }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+        firebaseAuth = FirebaseAuth.getInstance();
+        firebaseUser = firebaseAuth.getCurrentUser();
+        if(firebaseUser != null){
+            Toast.makeText(Main2Activity.this,"Done",Toast.LENGTH_SHORT).show();
+        }
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
-        Toast.makeText(Main2Activity.this,"Sign in success",Toast.LENGTH_SHORT).show();
+//        Toast.makeText(Main2Activity.this,"Sign in success",Toast.LENGTH_SHORT).show();
             magicGoogleButton = findViewById(R.id.XmlGoogleSignOut);
             JavaChooseButton = findViewById(R.id.XmlChooseImage);
             JavaUploadButton = findViewById(R.id.XmlUploadImage);
@@ -92,6 +110,7 @@ public class Main2Activity extends AppCompatActivity {
                 @Override
                 public void onFailure(@NonNull Exception e) {
                     Toast.makeText(Main2Activity.this,"Uploade failed "+e.getMessage(),Toast.LENGTH_SHORT).show();
+                    progressDialog.dismiss();
                 }
             })
             .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {

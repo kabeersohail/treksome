@@ -1,6 +1,7 @@
 package com.example.sohail.treksome;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -20,6 +21,8 @@ import android.widget.TextView;
 
 import com.firebase.ui.auth.AuthUI;
 import com.github.clans.fab.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class Main3Activity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     Dialog dialog;
@@ -27,12 +30,17 @@ public class Main3Activity extends AppCompatActivity implements NavigationView.O
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     ActionBarDrawerToggle toggle;
+    Context context;
+    public Main3Activity(Context context){
+        this.context = context;
+    }
 
+    public Main3Activity(){ }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main3);
-
+        FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         drawerLayout = findViewById(R.id.layoutdraw);
         navigationView = findViewById(R.id.navigation_viewk);
         navigationView.setNavigationItemSelectedListener(this);
@@ -90,7 +98,7 @@ public class Main3Activity extends AppCompatActivity implements NavigationView.O
         }
 
         if(id == R.id.uploadimage){
-            AuthUI.getInstance().signOut(this);
+//            Main2Activity main2Activity = new Main2Activity(Main3Activity.this);
             startActivity(new Intent(this,Main2Activity.class));
         }
 

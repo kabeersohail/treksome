@@ -60,8 +60,11 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else
                 {
+//                    Main3Activity main3Activity = new Main3Activity(MainActivity.this);
+                    Intent intent = new Intent(MainActivity.this,Main3Activity.class);
+                    intent.putExtra("User",firebaseUser);
 //                    Toast.makeText(MainActivity.this,"Signed in",Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(MainActivity.this,Main3Activity.class));
+                    startActivity(intent);
                 }
             }
         };
@@ -74,9 +77,9 @@ public class MainActivity extends AppCompatActivity {
         firebaseAuth.addAuthStateListener(stateListener);
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        firebaseAuth.removeAuthStateListener(stateListener);
-    }
+//    @Override
+//    protected void onPause() {
+//        super.onPause();
+//        firebaseAuth.removeAuthStateListener(stateListener);
+//    }
 }
