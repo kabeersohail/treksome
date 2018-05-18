@@ -77,9 +77,9 @@ public class MainActivity extends AppCompatActivity {
         firebaseAuth.addAuthStateListener(stateListener);
     }
 
-//    @Override
-//    protected void onPause() {
-//        super.onPause();
-//        firebaseAuth.removeAuthStateListener(stateListener);
-//    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        firebaseAuth.removeAuthStateListener(stateListener);
+    }
 }
