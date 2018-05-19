@@ -26,7 +26,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class Main3Activity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     Dialog dialog;
-    Button JavaFabK;
+    Button JavaFabK,JavaPhotos;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     ActionBarDrawerToggle toggle;
@@ -50,6 +50,31 @@ public class Main3Activity extends AppCompatActivity implements NavigationView.O
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         dialog = new Dialog(this);
+        JavaPhotos = findViewById(R.id.Xmlphotos);
+        JavaPhotos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Button viewall;
+                TextView close;
+                dialog.setContentView(R.layout.photos);
+                viewall = dialog.findViewById(R.id.xmlviewphotos);
+                close = dialog.findViewById(R.id.xmlclose);
+                close.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+                viewall.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        openImagesActivity();
+                    }
+                });
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.show();
+            }
+        });
         JavaFabK = findViewById(R.id.fabk);
         JavaFabK.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,11 +124,16 @@ public class Main3Activity extends AppCompatActivity implements NavigationView.O
 
         if(id == R.id.uploadimage){
 //            Main2Activity main2Activity = new Main2Activity(Main3Activity.this);
-            startActivity(new Intent(this,Main2Activity.class));
+            startActivity(new Intent(this,Main4Activity.class));
         }
 
 
 
         return false;
         }
+
+    private void openImagesActivity() {
+        Intent intent = new Intent(this, ImagesActivity.class);
+        startActivity(intent);
+    }
 }

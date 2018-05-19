@@ -5,6 +5,7 @@
     android:id="@+id/layoutdraw"
     android:layout_height="match_parent"
     android:orientation="horizontal"
+    android:background="@drawable/tent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Main3Activity">
 
@@ -26,10 +27,10 @@
             android:textColor="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.139"
+            app:layout_constraintHorizontal_bias="0.126"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.8" />
+            app:layout_constraintVertical_bias="0.865" />
 
         <Button
             android:layout_width="100dp"
@@ -44,12 +45,13 @@
             android:textColor="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.839"
+            app:layout_constraintHorizontal_bias="0.847"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.8" />
+            app:layout_constraintVertical_bias="0.865" />
 
         <Button
+            android:id="@+id/Xmlphotos"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
@@ -64,7 +66,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.636" />
+            app:layout_constraintVertical_bias="0.697" />
 
     </android.support.constraint.ConstraintLayout>
 

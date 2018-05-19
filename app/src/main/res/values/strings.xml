@@ -10,4 +10,8 @@
     <string name="events">Events</string>
     <string name="open">open</string>
     <string name="close">close</string>
+    <string name="show_uploads">Show Uploads</string>
+    <string name="upload">Upload</string>
+    <string name="enter_file_name">Enter file name</string>
+    <string name="choose_file">Choose file</string>
 </resources>

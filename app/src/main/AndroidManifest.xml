@@ -23,13 +23,26 @@
         </activity>
         <activity
             android:name=".Main2Activity"
+
             android:largeHeap="true">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Main3Activity" />
+        </activity>
+        <activity android:name=".Main3Activity" />
+
+        <activity android:name=".ImagesActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Main3Activity"
                 />
         </activity>
-        <activity android:name=".Main3Activity"></activity>
+        <activity android:name=".Main4Activity">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".Main3Activity"
+                />
+        </activity>
     </application>
 
 </manifest>
