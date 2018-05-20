@@ -36,6 +36,7 @@ public class ImageDetails extends AppCompatActivity {
         StorageReference imageRef = mStorage.getReferenceFromUrl(selectedItem.getImageUrl());
         Picasso.get()
                 .load(selectedItem.getImageUrl())
+                .placeholder(R.drawable.loading)
 //                .centerCrop()
                 .into(imageView);
     }
