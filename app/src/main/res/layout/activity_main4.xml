@@ -16,6 +16,7 @@
     <EditText
         android:id="@+id/edit_text_file_name"
         android:layout_width="match_parent"
+        android:inputType="textPersonName"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_toEndOf="@+id/button_choose_image"

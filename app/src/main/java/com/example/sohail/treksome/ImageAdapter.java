@@ -42,6 +42,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
         Upload uploadCurrent = mUploads.get(position);
         holder.textViewName.setText(uploadCurrent.getName());
 //        mProgressCircle.setVisibility(View.VISIBLE);
+        String url = uploadCurrent.getImageUrl();
         Picasso.get()
                 .load(uploadCurrent.getImageUrl())
                 .placeholder(R.drawable.loading)

@@ -24,29 +24,30 @@
         </activity>
         <activity
             android:name=".Main2Activity"
-            android:screenOrientation="portrait"
-            android:largeHeap="true">
+            android:largeHeap="true"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Main3Activity" />
         </activity>
-        <activity android:name=".Main3Activity"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".ImagesActivity"
+         <activity
+         android:name=".Main3Activity"
+         android:screenOrientation="portrait" />
+        <activity
+            android:name=".ImagesActivity"
             android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Main3Activity"
-                />
+                android:value=".Main3Activity" />
         </activity>
-        <activity android:name=".Main4Activity"
+        <activity
+            android:name=".Main4Activity"
             android:screenOrientation="portrait">
             <meta-data
-                    android:name="android.support.PARENT_ACTIVITY"
-                    android:value=".Main3Activity"
-                />
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Main3Activity" />
         </activity>
+        <activity android:name=".ImageDetails"></activity>
     </application>
 
 </manifest>

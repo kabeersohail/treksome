@@ -1,5 +1,7 @@
 package com.example.sohail.treksome;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -17,6 +19,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,7 +33,7 @@ public class ImagesActivity extends AppCompatActivity implements ImageAdapter.On
     private DatabaseReference mDatabaseRef;
     private ValueEventListener mDBListener;
 
-    private List<Upload> mUploads;
+    static public List<Upload> mUploads;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,8 +84,10 @@ public class ImagesActivity extends AppCompatActivity implements ImageAdapter.On
 
     @Override
     public void onItemClick(int position) {
-        mProgressCircle.setVisibility(View.GONE);
-        Toast.makeText(this, "Normal click at position: " + position, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(ImagesActivity.this,ImageDetails.class);
+        intent.putExtra("position",position);
+        startActivity(intent);
+//        Toast.makeText(this, "Normal click at position: " + position, Toast.LENGTH_SHORT).show();
     }
 
     @Override
