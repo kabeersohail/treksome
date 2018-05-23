@@ -6,23 +6,23 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.annotation.NonNull;
-import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.ViewFlipper;
 
 import com.firebase.ui.auth.AuthUI;
-import com.github.clans.fab.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
+import java.util.Objects;
 
 public class Main3Activity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     Dialog dialog;
@@ -30,6 +30,7 @@ public class Main3Activity extends AppCompatActivity implements NavigationView.O
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     ActionBarDrawerToggle toggle;
+    ViewFlipper viewFlipper;
     Context context;
     public Main3Activity(Context context){
         this.context = context;
@@ -40,14 +41,18 @@ public class Main3Activity extends AppCompatActivity implements NavigationView.O
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main3);
-        FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+
+        final int images[] = {R.drawable.t1,R.drawable.t2,R.drawable.t3,R.drawable.t4};
+
+
+//        FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         drawerLayout = findViewById(R.id.layoutdraw);
         navigationView = findViewById(R.id.navigation_viewk);
         navigationView.setNavigationItemSelectedListener(this);
         toggle = new ActionBarDrawerToggle(this,drawerLayout,R.string.open,R.string.close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
         dialog = new Dialog(this);
         JavaPhotos = findViewById(R.id.Xmlphotos);
@@ -59,6 +64,11 @@ public class Main3Activity extends AppCompatActivity implements NavigationView.O
                 dialog.setContentView(R.layout.photos);
                 viewall = dialog.findViewById(R.id.xmlviewphotos);
                 close = dialog.findViewById(R.id.xmlclose);
+                viewFlipper = dialog.findViewById(R.id.xmlflipper);
+                for (int image:images) {
+                    flipperImages(image);
+                }
+
                 close.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -71,7 +81,7 @@ public class Main3Activity extends AppCompatActivity implements NavigationView.O
                         openImagesActivity();
                     }
                 });
-                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                Objects.requireNonNull(dialog.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 dialog.show();
             }
         });
@@ -79,10 +89,10 @@ public class Main3Activity extends AppCompatActivity implements NavigationView.O
         JavaFabK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Button viewall;
+//                Button viewall;
                 TextView close;
                 dialog.setContentView(R.layout.articles);
-                viewall = dialog.findViewById(R.id.xmlviewall);
+//                viewall = dialog.findViewById(R.id.xmlviewall);
                 close = dialog.findViewById(R.id.xmlclose);
                 close.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -90,26 +100,17 @@ public class Main3Activity extends AppCompatActivity implements NavigationView.O
                         dialog.dismiss();
                     }
                 });
-                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                Objects.requireNonNull(dialog.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 dialog.show();
             }
         });
 
     }
 
-    public void showPopup(){
-
-
-    }
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if(toggle.onOptionsItemSelected(item))
-        {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
+        return toggle.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -118,6 +119,7 @@ public class Main3Activity extends AppCompatActivity implements NavigationView.O
         int id = item.getItemId();
 
         if(id == R.id.signoutdrawar){
+            finish();
             AuthUI.getInstance().signOut(this);
             startActivity(new Intent(this,MainActivity.class));
         }
@@ -135,5 +137,15 @@ public class Main3Activity extends AppCompatActivity implements NavigationView.O
     private void openImagesActivity() {
         Intent intent = new Intent(this, ImagesActivity.class);
         startActivity(intent);
+    }
+
+    public void flipperImages(int image){
+        ImageView imageView = new ImageView(this);
+        imageView.setBackgroundResource(image);
+        viewFlipper.addView(imageView);
+        viewFlipper.setFlipInterval(4000);// 4 sec
+        viewFlipper.setAutoStart(true);
+        viewFlipper.setInAnimation(this,R.anim.fui_slide_in_right);
+        viewFlipper.setOutAnimation(this,R.anim.fui_slide_out_left);
     }
 }

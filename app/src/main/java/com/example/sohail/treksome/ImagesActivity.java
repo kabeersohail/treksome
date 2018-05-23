@@ -31,7 +31,6 @@ public class ImagesActivity extends AppCompatActivity implements ImageAdapter.On
     private ImageAdapter mAdapter;
 
     private ProgressBar mProgressCircle;
-    ViewFlipper viewFlipper;
     private FirebaseStorage mStorage;
     private DatabaseReference mDatabaseRef;
     private ValueEventListener mDBListener;
@@ -46,15 +45,11 @@ public class ImagesActivity extends AppCompatActivity implements ImageAdapter.On
         mRecyclerView = findViewById(R.id.recycler_view);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        viewFlipper = findViewById(R.id.flipper);
         mProgressCircle = findViewById(R.id.progress_circle);
 
 //        for(int i =0;i<images.length;i++){
 //        }
 
-        for (int image:images) {
-            flipperImages(image);
-        }
 
         mUploads = new ArrayList<>();
 
@@ -126,14 +121,5 @@ public class ImagesActivity extends AppCompatActivity implements ImageAdapter.On
         mDatabaseRef.removeEventListener(mDBListener);
     }
 
-    public void flipperImages(int image){
-        ImageView imageView = new ImageView(this);
-        imageView.setBackgroundResource(image);
-        viewFlipper.addView(imageView);
-        viewFlipper.setFlipInterval(4000);// 4 sec
-        viewFlipper.setAutoStart(true);
-        viewFlipper.setInAnimation(this,R.anim.fui_slide_in_right);
-        viewFlipper.setOutAnimation(this,R.anim.fui_slide_out_left);
-    }
 
 }

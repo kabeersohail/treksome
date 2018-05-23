@@ -5,12 +5,7 @@
     android:layout_height="match_parent"
     tools:context=".ImagesActivity">
 
-    <ViewFlipper
-        android:id="@+id/flipper"
-        android:layout_width="match_parent"
-        android:layout_height="200dp">
-
-    </ViewFlipper>
+    
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view"

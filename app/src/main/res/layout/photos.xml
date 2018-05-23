@@ -26,28 +26,32 @@
         android:textStyle="bold"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
+        android:padding="10dp"
         android:layout_gravity="center"
         android:text="Photos"/>
 
     <ScrollView
+
         android:layout_gravity="center"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
 
         <LinearLayout
             android:layout_gravity="center"
             android:orientation="vertical"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <ImageView
+            <ViewFlipper
+                android:id="@+id/xmlflipper"
                 android:gravity="center"
-                android:layout_width="200dp"
+                android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:src="@drawable/photo" />
 
             <Button
+                android:padding="10dp"
                 android:id="@+id/xmlviewphotos"
                 android:textColor="#FFFFFF"
                 android:layout_gravity="center"

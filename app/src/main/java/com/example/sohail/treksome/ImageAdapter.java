@@ -21,7 +21,7 @@ import java.util.List;
 
 public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHolder> {
     private Context mContext;
-    private List<Upload> mUploads;
+    public static List<Upload> mUploads;
     int i=0;
     private OnItemClickListener mListener;
     private ProgressBar mProgressCircle;
