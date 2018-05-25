@@ -36,8 +36,14 @@ public class ImageDetails extends AppCompatActivity {
         StorageReference imageRef = mStorage.getReferenceFromUrl(selectedItem.getImageUrl());
         Picasso.get()
                 .load(selectedItem.getImageUrl())
-                .placeholder(R.drawable.loading)
+//                .placeholder(R.drawable.loading)
 //                .centerCrop()
                 .into(imageView);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(ImageDetails.this,ImagesActivity.class));
     }
 }

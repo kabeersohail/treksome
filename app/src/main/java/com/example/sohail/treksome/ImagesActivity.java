@@ -120,6 +120,4 @@ public class ImagesActivity extends AppCompatActivity implements ImageAdapter.On
         super.onDestroy();
         mDatabaseRef.removeEventListener(mDBListener);
     }
-
-
 }
